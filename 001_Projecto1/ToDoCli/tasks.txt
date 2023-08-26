@@ -1,0 +1,4 @@
+terminar esta implementación|false
+comenzar siguiente aplicación de optimizar imágenes con node|false
+terminar de grabar el curso de node|false
+terminar emplementacion a la enter|false
