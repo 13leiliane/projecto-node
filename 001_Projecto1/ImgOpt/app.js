@@ -7,18 +7,26 @@ import imageminWebp from "imagemin-webp";
 import imageminGifsicle from "imagemin-gifsicle";
 import sharp from "sharp";
 
+/*funciones para optimizar las fotos*/
+
 let inputFolder = "src"; // para referencias a las imagens
 let outputFolder = "opt";// para otimizar las imagens 
 let targetWidth = 1920; //para controlar el ancho, estabelecimento
 
+// esta funcion asyncrona.   
 const processImg = async () => {
+  // este arreglo va aller los archivos de imagens
   try {
     const files = await fse.readdir(inputFolder);
 
     for (const file of files) {
+      //Las referencias de las dos inagens, path es la ruta 
+    
       let inputPath = `${inputFolder}/${file}`;
       let outputPath = `${outputFolder}/${file}`;
 
+
+      //((SHARP) acelera el processo deoptimizacion 
       await sharp(inputPath).resize(targetWidth).toFile(outputPath);
 
       await imagemin([outputPath], {

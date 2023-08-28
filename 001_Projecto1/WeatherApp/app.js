@@ -1,7 +1,9 @@
 import axios from "axios";
 import chalk from "chalk";
 
-const API_KEY = "71c111f0fbcfe5ae7d567474d76d21d3";
+// const {API_KEY
+// } = process.env;
+const API_KEY = "a9bce0d3a10ffa1553202637617d5288";
 
 function displayWeather(city, weatherData) {
   console.log(chalk.yellow(`\nInformación del clima: ${city}:`));
@@ -29,6 +31,7 @@ function handleError(err) {
 
 async function getWeather(city) {
   try {
+    //https://openweathermap.org/current#builtin
     let endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
 
     const response = await axios.get(endpoint, {
